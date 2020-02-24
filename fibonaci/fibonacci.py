@@ -57,7 +57,6 @@ def fibonacci_range(index: int) -> Union[list, None]:
         A fibonacci range given the index
 
     """
-
     fibonacci_start = [0, 1]
     if n < 0:
         return None
@@ -70,7 +69,7 @@ def fibonacci_range(index: int) -> Union[list, None]:
 
 
 def fibonacci_loop_max(n: int) -> Union[list, None]:
-    """
+    """This function is used to calculate the fibonacci range up to the value defined by n
 
     Args:
         n (int): Return the fibonacci sequence with with number smaller than n
@@ -105,7 +104,7 @@ def fibonacci_recursive(n: int) -> Union[int, None]:
 
         Idea of method found at:
         https://codereview.stackexchange.com/questions/183231/python-3-fibonacci-implementation
-        """
+    """
     if n < 0:
         return None
     elif n < 3:
