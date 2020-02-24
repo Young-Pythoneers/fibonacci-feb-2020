@@ -1,12 +1,13 @@
 from decimal import Decimal, getcontext
 import math
 from functools import lru_cache
+from typing import Union
 
 __all__ = [
     "fibonacci_closed",
     "fibonacci_loop",
     "fibonacci_range",
-    "fibonaci_loop_max",
+    "fibonacci_loop_max",
     "fibonacci_recursive",
 ]
 
@@ -26,7 +27,7 @@ def fibonacci_closed(n: int) -> int:
     return int((phi ** n - psi ** n) / Decimal(5).sqrt()+Decimal(0.5))
 
 
-def fibonacci_loop(n: int) -> int:
+def fibonacci_loop(n: int) -> Union[int, None]:
     """Function that returns the nth number in the fibonacci sequence
 
     Args:
@@ -46,7 +47,7 @@ def fibonacci_loop(n: int) -> int:
         return min1
 
 
-def fibonacci_range(index: int) -> list:
+def fibonacci_range(index: int) -> Union[list, None]:
     """This function is used to calculate the fibonacci range up to and including the given index
 
     Args:
@@ -68,7 +69,7 @@ def fibonacci_range(index: int) -> list:
         return fibonacci_start
 
 
-def fibonaci_loop_max(n: int) -> list:
+def fibonacci_loop_max(n: int) -> Union[list, None]:
     """
 
     Args:
@@ -93,7 +94,7 @@ def fibonaci_loop_max(n: int) -> list:
 
 
 @lru_cache(maxsize=4_000_000_000)
-def fibonacci_recursive(n: int) -> int:
+def fibonacci_recursive(n: int) -> Union[int, None]:
     """Function that returns the nth number in the fibonacci sequence
 
         Args:

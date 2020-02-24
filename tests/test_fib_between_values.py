@@ -1,4 +1,4 @@
-from fibonaci.fibonacci import fibonaci_loop_max
+from fibonaci.fibonacci import fibonacci_loop_max
 import pytest
 
 
@@ -13,4 +13,4 @@ import pytest
     ],
 )
 def test_fibonacci(test_input, expected):
-    assert fibonaci_loop_max(test_input) == expected
+    assert fibonacci_loop_max(test_input) == expected
