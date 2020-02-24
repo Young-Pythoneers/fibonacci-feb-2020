@@ -1,6 +1,6 @@
 import pandas as pd
 import time
-import closed_form
+import fibonacci
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -28,7 +28,7 @@ def plot_results(df):
 
 if __name__ == '__main__':
     file_path = './speed_data.csv'
-    speed(2000, file_path, [closed_form.fibonacci_closed,closed_form.fibonacci_loop, closed_form.fibonacci_recursive])
+    speed(2000, file_path, [fibonacci.fibonacci_closed,fibonacci.fibonacci_loop, fibonacci.fibonacci_recursive])
     df = pd.read_csv(file_path)
     print(df)
     plot_results(df)

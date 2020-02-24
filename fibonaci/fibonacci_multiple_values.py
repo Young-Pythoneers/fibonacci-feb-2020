@@ -17,7 +17,7 @@ def fibonacci_range(index : int):
     if index == 0:
         return [0]
     elif index == 1:
-        return [1]
+        return [0, 1]
 
     else:
         for single_number in range(index):
