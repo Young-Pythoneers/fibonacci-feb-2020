@@ -1,6 +1,9 @@
 from flask import Flask, jsonify, request
+import connexion
 
-app = Flask(__name__)
+app = connexion.App(__name__, specification_dir='./')
+
+#app.add_api('swagger.yml')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -21,4 +24,4 @@ def fibonaci_range(index):
         return str(fibonacci_start[:-1])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
