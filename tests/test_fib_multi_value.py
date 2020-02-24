@@ -1,5 +1,5 @@
+from fibonaci.fibonacci import fibonacci_range
 import pytest
-from fibonaci.fibonacci_multiple_values import fibonacci_range
 
 @pytest.mark.parametrize(
     "test_input,expected",
