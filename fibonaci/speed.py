@@ -28,7 +28,7 @@ def plot_results(df):
 
 if __name__ == '__main__':
     file_path = './speed_data.csv'
-    speed(40_000, file_path, [closed_form.fibonacci_loop,closed_form.fibonacci_recursive])
+    speed(2000, file_path, [closed_form.fibonacci_closed,closed_form.fibonacci_loop, closed_form.fibonacci_recursive])
     df = pd.read_csv(file_path)
     print(df)
     plot_results(df)

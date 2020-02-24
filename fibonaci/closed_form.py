@@ -1,6 +1,7 @@
 import math
 from functools import lru_cache
 import time
+import multiprocessing as mp
 
 
 def fibonacci_closed(n: int) -> int:
@@ -99,6 +100,34 @@ def fibonacci_recursive(n: int) -> int:
         m = (n + 1) // 2
         return fibonacci_recursive(m) ** 2 + fibonacci_recursive(m - 1) ** 2
 
+@lru_cache(maxsize=4_000_000_000)
+def fibonacci_recursive_multithreaded(n: int) -> int:
+    """Function that returns the nth number in the fibonacci sequence
+
+            Args:
+                n (int): Return the number of the fibonacci sequence of this index
+
+            Returns:
+                int: The nth number in the fibonacci sequence
+
+            Idea of method found at:
+            https://codereview.stackexchange.com/questions/183231/python-3-fibonacci-implementation
+            """
+    if n < 0:
+        raise ValueError("n must be >= 0")
+        return None
+    elif n < 3:
+        return [0, 1, 1][n]
+    elif n % 2 == 0:
+        m = n // 2
+        pool = mp.Pool(processes=3)
+        results = [pool.apply(fibonacci_recursive_multithreaded, args=(x,)) for x in [m-1,m+1,m]]
+        return (results[0]+results[1])*results[2]
+    else:
+        m = (n + 1) // 2
+        pool = mp.Pool(processes=2)
+        results = [pool.apply(fibonacci_recursive_multithreaded, args=(x,)) for x in [m, m - 1]]
+        return results[0] ** 2 + results[1] ** 2
 
 if __name__ == '__main__':
 
