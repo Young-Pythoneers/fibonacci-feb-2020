@@ -1,15 +1,22 @@
-from flask import Flask, jsonify, request
 import connexion
 
-app = connexion.App(__name__, specification_dir='./')
+from flask import Flask, jsonify, request
 
-#app.add_api('swagger.yml')
+app = connexion.App(__name__, specification_dir="./")
 
-@app.route('/', methods=['GET', 'POST'])
+# app.add_api('swagger.yml')
+
+
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return jsonify({"Go to http://127.0.0.1:5000/multi_values/" : "then insert an index value to obtain a fibonacci range !"})
+    return jsonify(
+        {
+            "Go to http://127.0.0.1:5000/multi_values/": "then insert an index value to obtain a fibonacci range !"
+        }
+    )
 
-@app.route('/multi_values/<int:index>', methods=['GET'])
+
+@app.route("/multi_values/<int:index>", methods=["GET"])
 def fibonaci_range(index):
     fibonacci_start = [0, 1]
 
@@ -19,9 +26,10 @@ def fibonaci_range(index):
         return 1
 
     else:
-        for single_number in range(index-1):
+        for single_number in range(index - 1):
             fibonacci_start.extend([fibonacci_start[-1] + fibonacci_start[-2]])
         return str(fibonacci_start[:-1])
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)

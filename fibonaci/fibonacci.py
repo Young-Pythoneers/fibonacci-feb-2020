@@ -1,6 +1,14 @@
+from decimal import Decimal, getcontext
 import math
 from functools import lru_cache
-import decimal
+
+__all__ = [
+    "fibonacci_closed",
+    "fibonacci_loop",
+    "fibonacci_range",
+    "fibonaci_loop_max",
+    "fibonacci_recursive",
+]
 
 
 def fibonacci_closed(n: int) -> int:
@@ -12,9 +20,10 @@ def fibonacci_closed(n: int) -> int:
     Returns:
         int: The nth number in the fibonacci sequence
     """
-    decimal.getcontext().prec = 1_000_000
-    phi = decimal.Decimal((1 + math.sqrt(5)) / 2)
-    return int(round((phi ** n) / decimal.Decimal(math.sqrt(5))))
+    getcontext().prec = 1000
+    phi = Decimal((1 + Decimal(5).sqrt()) / 2)
+    psi = Decimal((1 - Decimal(5).sqrt()) / 2)
+    return int((phi ** n - psi ** n) / Decimal(5).sqrt()+Decimal(0.5))
 
 
 def fibonacci_loop(n: int) -> int:
@@ -36,8 +45,8 @@ def fibonacci_loop(n: int) -> int:
             min1, min2 = min1 + min2, min1
         return min1
 
-def fibonacci_range(index : int) -> list:
 
+def fibonacci_range(index: int) -> list:
     """This function is used to calculate the fibonacci range up to and including the given index
 
     Args:
@@ -52,11 +61,12 @@ def fibonacci_range(index : int) -> list:
     if n < 0:
         return None
     elif n < 2:
-        return fibonacci_start[0:index + 1]
+        return fibonacci_start[0 : index + 1]
     else:
-        for single_number in range(index-1):
+        for single_number in range(index - 1):
             fibonacci_start.extend([fibonacci_start[-1] + fibonacci_start[-2]])
         return fibonacci_start
+
 
 def fibonaci_loop_max(n: int) -> list:
     """
@@ -101,10 +111,12 @@ def fibonacci_recursive(n: int) -> int:
         return [0, 1, 1][n]
     elif n % 2 == 0:
         m = n // 2
-        return (fibonacci_recursive(m - 1) + fibonacci_recursive(m + 1)) * fibonacci_recursive(m)
+        return (
+            fibonacci_recursive(m - 1) + fibonacci_recursive(m + 1)
+        ) * fibonacci_recursive(m)
     else:
         m = (n + 1) // 2
         return fibonacci_recursive(m) ** 2 + fibonacci_recursive(m - 1) ** 2
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(fibonacci_closed(2_000_000))
