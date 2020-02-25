@@ -16,7 +16,7 @@ def fibonacci_closed(n: int) -> int:
     """Function that returns the nth number in the fibonacci sequence
 
     Args:
-        n (int): Return the number of the fibonacci sequence of this index
+        n (int): Return the number of the fibonacci sequence of this n
 
     Returns:
         int: The nth number in the fibonacci sequence
@@ -31,7 +31,7 @@ def fibonacci_loop(n: int) -> Union[int, None]:
     """Function that returns the nth number in the fibonacci sequence
 
     Args:
-        n (int): Return the number of the fibonacci sequence of this index
+        n (int): Return the number of the fibonacci sequence of this n
 
     Returns:
         int: The nth number in the fibonacci sequence
@@ -47,23 +47,23 @@ def fibonacci_loop(n: int) -> Union[int, None]:
         return min1
 
 
-def fibonacci_range(index: int) -> Union[list, None]:
-    """This function is used to calculate the fibonacci range up to and including the given index
+def fibonacci_range(n: int) -> Union[list, None]:
+    """This function is used to calculate the fibonacci range up to and including the given n
 
     Args:
-        index (int): The index is used for calculating the fibonacci range up to and including that index
+        n (int): The n is used for calculating the fibonacci range up to and including that n
 
     Returns:
-        A fibonacci range given the index
+        A fibonacci range given the n
 
     """
     fibonacci_start = [0, 1]
-    if index < 0:
+    if n < 0:
         return None
-    elif index < 2:
-        return fibonacci_start[0 : index + 1]
+    elif n < 2:
+        return fibonacci_start[0 : n + 1]
     else:
-        for single_number in range(index - 1):
+        for single_number in range(n - 1):
             fibonacci_start.extend([fibonacci_start[-1] + fibonacci_start[-2]])
         return fibonacci_start
 
@@ -97,7 +97,7 @@ def fibonacci_recursive(n: int) -> Union[int, None]:
     """Function that returns the nth number in the fibonacci sequence
 
         Args:
-            n (int): Return the number of the fibonacci sequence of this index
+            n (int): Return the number of the fibonacci sequence of this n
 
         Returns:
             int: The nth number in the fibonacci sequence

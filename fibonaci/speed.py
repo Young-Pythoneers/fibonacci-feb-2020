@@ -36,7 +36,7 @@ def plot_results(df):
 if __name__ == "__main__":
     file_path = "./speed_data.csv"
     speed(
-        20_000,
+        40_000,
         file_path,
         [
             fibonacci.fibonacci_closed,
