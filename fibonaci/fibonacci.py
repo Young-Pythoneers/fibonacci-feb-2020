@@ -55,7 +55,6 @@ def fibonacci_range(n: int) -> Union[List[int], None]:
 
         Returns:
             A fibonacci range given the n
-
     """
     fibonacci_start = [0, 1]
     if n < 0:
