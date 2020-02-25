@@ -47,7 +47,7 @@ def fibonacci_loop(n: int) -> Union[int, None]:
         return min1
 
 
-def fibonacci_range(n: int) -> Union[list, None]:
+def fibonacci_range(n: int) -> Union[list[int], None]:
     """This function is used to calculate the fibonacci range up to and including the given n
 
     Args:
