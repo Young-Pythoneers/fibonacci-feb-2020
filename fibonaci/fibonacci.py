@@ -1,7 +1,7 @@
 from decimal import Decimal, getcontext
 import math
 from functools import lru_cache
-from typing import Union
+from typing import Union, List
 
 __all__ = [
     "fibonacci_closed",
@@ -68,7 +68,7 @@ def fibonacci_range(n: int) -> Union[list, None]:
         return fibonacci_start
 
 
-def fibonacci_loop_max(n: int) -> Union[list, None]:
+def fibonacci_loop_max(n: int) -> Union[List[int], None]:
     """This function is used to calculate the fibonacci range up to the value defined by n
 
     Args:
@@ -117,6 +117,3 @@ def fibonacci_recursive(n: int) -> Union[int, None]:
     else:
         m = (n + 1) // 2
         return fibonacci_recursive(m) ** 2 + fibonacci_recursive(m - 1) ** 2
-
-if __name__ == "__main__":
-    print(fibonacci_closed(2_000_000))

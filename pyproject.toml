@@ -8,6 +8,9 @@ authors = ["Nathan Hoogendorp <Nathan.Hoogendorp@ordina.nl>"]
 python = "^3.7"
 flask = "^1.1.1"
 connexion = "^2.6.0"
+pandas = "^1.0.1"
+seaborn = "^0.10.0"
+matplotlib = "^3.1.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
