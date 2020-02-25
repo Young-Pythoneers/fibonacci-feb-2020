@@ -58,9 +58,9 @@ def fibonacci_range(index: int) -> Union[list, None]:
 
     """
     fibonacci_start = [0, 1]
-    if n < 0:
+    if index < 0:
         return None
-    elif n < 2:
+    elif index < 2:
         return fibonacci_start[0 : index + 1]
     else:
         for single_number in range(index - 1):
