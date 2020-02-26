@@ -68,7 +68,7 @@ paths:
                 400:
                     description: "Invalid status value"
 
-    /single_values:
+    /single_value:
             get:
                 operationId: "fibonaci.fibonacci_recursive"
                 tags:
