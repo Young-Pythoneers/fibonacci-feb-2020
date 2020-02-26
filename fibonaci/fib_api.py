@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 
 app = connexion.App(__name__, specification_dir="./")
 
-# app.add_api('swagger.yml')
+app.add_api('api/swagger.yml')
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -15,20 +15,6 @@ def index():
         }
     )
 
-
-@app.route("/multi_values/<int:index>", methods=["GET"])
-def fibonaci_range(index):
-    fibonacci_start = [0, 1]
-
-    if index == 0:
-        return 0
-    elif index == 1:
-        return 1
-
-    else:
-        for single_number in range(index - 1):
-            fibonacci_start.extend([fibonacci_start[-1] + fibonacci_start[-2]])
-        return str(fibonacci_start[:-1])
 
 
 if __name__ == "__main__":
