@@ -1,4 +1,3 @@
-import math
 from decimal import Decimal, getcontext
 from functools import lru_cache
 from typing import List, Optional
@@ -47,7 +46,7 @@ def fibonacci_loop(n: int) -> Optional[int]:
         return min1
 
 
-def fibonacci_range(n: int) -> Optional[int]:
+def fibonacci_range(n: int) -> Optional[List[int]]:
     """This function is used to calculate the fibonacci range up to and including the given n
     Args:
         n (int): The n is used for calculating the fibonacci range up to and including that n
