@@ -1,5 +1,6 @@
-from fibonaci.fibonacci import fibonacci_loop_max
 import pytest
+
+from fibonaci.fibonacci import fibonacci_loop_max
 
 
 @pytest.mark.parametrize(

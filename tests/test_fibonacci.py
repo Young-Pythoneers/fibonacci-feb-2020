@@ -1,5 +1,6 @@
-from fibonaci import fibonacci_closed, fibonacci_recursive
 import pytest
+
+from fibonaci import fibonacci_closed, fibonacci_recursive
 
 
 @pytest.mark.parametrize(

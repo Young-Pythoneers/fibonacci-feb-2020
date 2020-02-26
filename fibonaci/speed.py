@@ -1,10 +1,11 @@
 import time
+from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from pathlib import Path
-from fibonaci import  fibonacci_closed,fibonacci_loop, fibonacci_recursive
+
+from fibonaci import fibonacci_closed, fibonacci_loop, fibonacci_recursive
 
 
 def timed_iterator(func):
@@ -37,13 +38,7 @@ def plot_results(df):
 if __name__ == "__main__":
     file_path = Path("./speed_data.csv")
     speed(
-        200,
-        file_path,
-        [
-            fibonacci_closed,
-            fibonacci_loop,
-            fibonacci_recursive,
-        ],
+        200, file_path, [fibonacci_closed, fibonacci_loop, fibonacci_recursive,],
     )
     df = pd.read_csv(file_path)
     print(df)
