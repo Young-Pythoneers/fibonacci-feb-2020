@@ -153,14 +153,6 @@ dotenv = ["python-dotenv"]
 
 [[package]]
 category = "main"
-description = ""
-name = "flaskr"
-optional = false
-python-versions = "*"
-version = "1.0.0"
-
-[[package]]
-category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -593,7 +585,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "453e1f67850ffac0e52b0eb17c705da0f435c9f02314915d6205ab1022ec2109"
+content-hash = "8f2a2795ae1c66a38ece672804ffdb32c3961b8ef1a73211ecdfe91fcf79a690"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -644,9 +636,6 @@ cycler = [
 flask = [
     {file = "Flask-1.1.1-py2.py3-none-any.whl", hash = "sha256:45eb5a6fd193d6cf7e0cf5d8a5b31f83d5faae0293695626f539a823e93b13f6"},
     {file = "Flask-1.1.1.tar.gz", hash = "sha256:13f9f196f330c7c2c5d7a5cf91af894110ca0215ac051b5844701f2bfd934d52"},
-]
-flaskr = [
-    {file = "flaskr-1.0.0-py3.6.egg", hash = "sha256:53a291da375d37d08dc34490fe56dbb2c979e51b9cb170a7fed62cf91ac25868"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
