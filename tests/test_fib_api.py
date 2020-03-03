@@ -1,5 +1,5 @@
 import pytest
-from mock import patch
+#from mock import patch
 
 from fibonaci.fib_api import app
 
@@ -53,6 +53,6 @@ def test_up_to_value_answer(client):
 
 
 
-@patch('urllib.urlopen')
-def test_foo(urlopen_mock):
-    urlopen_mock.return_value = MyUrlOpenMock()
+#@patch('urllib.urlopen')
+#def test_foo(urlopen_mock):
+#    urlopen_mock.return_value = MyUrlOpenMock()
