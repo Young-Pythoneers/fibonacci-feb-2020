@@ -19,6 +19,7 @@ marshmallow-sqlalchemy = "^0.22.3"
 marshmallow = "^3.5.0"
 mock = "^4.0.1"
 aiosql = "^3.0.0"
+flask_sqlalchemy = "^2.4.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
