@@ -12,11 +12,11 @@ basePath: "/api"
 
 # Paths supported by the server application
 paths:
-    /mul_values:
+    /fibonacci/up-to-including-index:
         get:
-            operationId: "fibonaci.fibonacci_range"
+            operationId: "fibonaci.up_to_including_index"
             tags:
-                - "Mul_value"
+                - "/fibonacci/up-to-including-index"
             summary: "Given an index, this function return the range of Fibonacci functions up to and including the given argument."
             description: "Read given index"
             produces:
@@ -40,12 +40,12 @@ paths:
                 400:
                     description: "Invalid status value"
 
-    /mul_values_max:
+    /fibonacci/up-to-value:
         get:
-            operationId: "fibonaci.fibonacci_loop_max"
+            operationId: "fibonaci.up_to_value"
             tags:
-                - "Mul_value_max"
-            summary: "Given an index, this function return the range of Fibonacci functions up to a certain value defined by the given argument."
+                - "/fibonacci/up-to-value"
+            summary: "Given a value, this function return the range of Fibonacci functions up to a certain value defined by the given argument."
             description: "Read given index"
             produces:
                 - "application/xml"
@@ -68,11 +68,11 @@ paths:
                 400:
                     description: "Invalid status value"
 
-    /single_value:
+    /fibonacci/for_index:
             get:
-                operationId: "fibonaci.api_fibonacci"
+                operationId: "fibonaci.for_index"
                 tags:
-                    - "Single_value"
+                    - "/fibonacci/for_index"
                 summary: "Given an index, this function return the nth number in the Fibonacci sequence, where n is defined by the given argument."
                 description: "Read given index"
                 produces:
