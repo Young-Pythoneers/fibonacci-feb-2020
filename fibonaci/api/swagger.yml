@@ -70,7 +70,7 @@ paths:
 
     /single_value:
             get:
-                operationId: "fibonaci.fibonacci_recursive"
+                operationId: "fibonaci.api_fibonacci"
                 tags:
                     - "Single_value"
                 summary: "Given an index, this function return the nth number in the Fibonacci sequence, where n is defined by the given argument."

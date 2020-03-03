@@ -1,10 +1,13 @@
 import connexion
 from flask import Flask, jsonify, request
+from fibonaci import fibonacci_recursive
 
 app = connexion.App(__name__, specification_dir="./")
 
 app.add_api("api/swagger.yml")
 
+def api_fibonacci(n):
+    return fibonacci_recursive(n)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
