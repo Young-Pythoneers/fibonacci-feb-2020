@@ -1,4 +1,12 @@
 [[package]]
+category = "main"
+description = "Simple SQL in Python."
+name = "aiosql"
+optional = false
+python-versions = ">=3.6,<4.0"
+version = "3.0.0"
+
+[[package]]
 category = "dev"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 name = "appdirs"
@@ -682,10 +690,14 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "1ae6b05b9dd6d86e952687acd2f2dbaaad308a19245e15eb94f87c31e0761e6f"
+content-hash = "fed8109d630bdf9123727d74951225fe4d7b535fa151651a975fab8b3aee408a"
 python-versions = "^3.7"
 
 [metadata.files]
+aiosql = [
+    {file = "aiosql-3.0.0-py3-none-any.whl", hash = "sha256:b7842de7e4ab2e3aa20c0a721c7a173e2cfdbea6197d0e24a0261061413b3ea1"},
+    {file = "aiosql-3.0.0.tar.gz", hash = "sha256:9256d6825ed958cfe70c4af483a05c220fbbdbfbdd237122325dd853ccc1569b"},
+]
 appdirs = [
     {file = "appdirs-1.4.3-py2.py3-none-any.whl", hash = "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"},
     {file = "appdirs-1.4.3.tar.gz", hash = "sha256:9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"},
