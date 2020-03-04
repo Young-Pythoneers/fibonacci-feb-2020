@@ -21,12 +21,12 @@ for x in range(n):
 db.session.commit()
 
 ## TEST SCRIPT FOR DB
-import sqlite3
-
-conn = sqlite3.connect('fibonacci.db')
-cur = conn.cursor()
-cur.execute('SELECT * FROM fibonacci')
-fizz_buzz = cur.fetchall()
-print(fizz_buzz)
+# import sqlite3
+#
+# conn = sqlite3.connect('fibonacci.db')
+# cur = conn.cursor()
+# cur.execute('SELECT * FROM fibonacci')
+# fizz_buzz = cur.fetchall()
+# print(fizz_buzz)
 # for Fizz in fizz_buzz:
 #     print(Fizz)
