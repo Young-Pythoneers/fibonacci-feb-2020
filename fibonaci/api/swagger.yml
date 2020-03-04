@@ -24,7 +24,6 @@ paths:
                 - "application/json"
             parameters:
                 -   name: "n"
-                    #default: 4
                     in: "query"
                     description: "Tags to filter by"
                     required: false
@@ -52,7 +51,6 @@ paths:
                 - "application/json"
             parameters:
                 -   name: "n"
-                    #default: 4
                     in: "query"
                     description: "Tags to filter by"
                     required: false
@@ -68,11 +66,11 @@ paths:
                 400:
                     description: "Invalid status value"
 
-    /fibonacci/for_index:
+    /fibonacci/for-index:
             get:
                 operationId: "fibonaci.fib_api.for_index"
                 tags:
-                    - "/fibonacci/for_index"
+                    - "/fibonacci/for-index"
                 summary: "Given an index, this function return the nth number in the Fibonacci sequence, where n is defined by the given argument."
                 description: "Read given index"
                 produces:
@@ -80,7 +78,6 @@ paths:
                     - "application/json"
                 parameters:
                     -   name: "n"
-                        #default: 4
                         in: "query"
                         description: "Tags to filter by"
                         required: false

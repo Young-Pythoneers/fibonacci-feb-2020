@@ -1,5 +1,4 @@
-#from config import db, ma
-from chris_api import db, ma
+from config import db, ma
 
 class Fibonacci(db.Model):
     __tablename__ = 'Fibonacci'
