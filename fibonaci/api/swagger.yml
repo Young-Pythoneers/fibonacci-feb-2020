@@ -1,0 +1,94 @@
+swagger: "2.0"
+info:
+    description: This is the swagger file that goes with our server code
+    version: "1.0.0"
+    title: Swagger REST Article
+consumes:
+    - "application/json"
+produces:
+    - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+    /fibonacci/up-to-including-index:
+        get:
+            operationId: "fibonaci.fib_api.up_to_including_index"
+            tags:
+                - "/fibonacci/up-to-including-index"
+            summary: "Given an index, this function return the range of Fibonacci functions up to and including the given argument."
+            description: "Read given index"
+            produces:
+                - "application/xml"
+                - "application/json"
+            parameters:
+                -   name: "n"
+                    in: "query"
+                    description: "Tags to filter by"
+                    required: false
+                    type: "integer"
+                    items:
+                        type: "integer"
+                    collectionFormat: "multi"
+            responses:
+                200:
+                    description: "successful operation"
+                    schema:
+                        type: "array"
+                400:
+                    description: "Invalid status value"
+
+    /fibonacci/up-to-value:
+        get:
+            operationId: "fibonaci.fib_api.up_to_value"
+            tags:
+                - "/fibonacci/up-to-value"
+            summary: "Given a value, this function return the range of Fibonacci functions up to a certain value defined by the given argument."
+            description: "Read given index"
+            produces:
+                - "application/xml"
+                - "application/json"
+            parameters:
+                -   name: "n"
+                    in: "query"
+                    description: "Tags to filter by"
+                    required: false
+                    type: "integer"
+                    items:
+                        type: "integer"
+                    collectionFormat: "multi"
+            responses:
+                200:
+                    description: "successful operation"
+                    schema:
+                        type: "array"
+                400:
+                    description: "Invalid status value"
+
+    /fibonacci/for-index:
+            get:
+                operationId: "fibonaci.fib_api.for_index"
+                tags:
+                    - "/fibonacci/for-index"
+                summary: "Given an index, this function return the nth number in the Fibonacci sequence, where n is defined by the given argument."
+                description: "Read given index"
+                produces:
+                    - "application/xml"
+                    - "application/json"
+                parameters:
+                    -   name: "n"
+                        in: "query"
+                        description: "Tags to filter by"
+                        required: false
+                        type: "integer"
+                        items:
+                            type: "integer"
+                        collectionFormat: "multi"
+                responses:
+                    200:
+                        description: "successful operation"
+                        schema:
+                            type: "integer"
+                    400:
+                        description: "Invalid status value"
