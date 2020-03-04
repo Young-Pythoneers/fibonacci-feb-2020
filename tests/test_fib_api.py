@@ -14,7 +14,7 @@ def test_app(client):
 
 
 def test_for_index(client):
-    rv = client.get("api/fibonacci/for_index?n=20")
+    rv = client.get("api/fibonacci/for-index?n=20")
     assert rv.status_code == 200
     assert rv.json == 6765
 

@@ -3,7 +3,7 @@ from typing import List, Optional
 import connexion
 from flask import render_template
 
-from fibonaci import fibonacci_loop_max, fibonacci_range, fibonacci_recursive
+from fibonaci.fibonacci import fibonacci_loop_max, fibonacci_range, fibonacci_recursive
 
 __all__ = ["for_index", "up_to_including_index", "up_to_value", "create_app", "home"]
 
