@@ -13,7 +13,7 @@ if os.path.exists("fibonacci.db"):
 # Create the database
 db.create_all()
 
-n = 300
+n = 3
 for x in range(n):
     fib_value = Fibonacci(index_value= x, single_value = str(fibonacci_recursive(x)))
     db.session.add(fib_value)
