@@ -1,4 +1,5 @@
 import pytest
+import sqlite3
 
 from fibonaci.fib_api import create_app
 
@@ -29,3 +30,10 @@ def test_up_to_value(client):
     rv = client.get("/api/fibonacci/up-to-value?n=20")
     assert rv.status_code == 200
     assert rv.json == [0, 1, 1, 2, 3, 5, 8, 13]
+
+# def test_database():
+#     conn = sqlite3.connect('fibonacci.db')
+#     cur = conn.cursor()
+#     cur.execute(f'SELECT a_value FROM db where an_index is {20}')
+#     # record = cur.fetchall()
+#     # print(record)

@@ -43,33 +43,33 @@ def for_index(n: int) -> str:
     return str(fibonacci_recursive_with_database(n))
 
 def fibonacci_up_to_including_index_database(n: int) -> str:
-    # conn = sqlite3.connect('Fibonacci.db')
-    # cur = conn.cursor()
-    # cur.execute('SELECT an_index FROM fibonacci ORDER BY an_index DESC LIMIT 1')
-    # query_result = cur.fetchall()
-    # if n <= query_result[0][0]:
-    #     cur.execute(f'SELECT a_value FROM fibonacci where an_index <= {n}')
-    #     print(str(n) + " found in database")
-    #     return cur.fetchall()
-    # else:
-    #    print(str(n) + " NOT found in database")
-    #    return fibonacci_range(n)
+    conn = sqlite3.connect('Fibonacci.db')
+    cur = conn.cursor()
+    cur.execute('SELECT an_index FROM fibonacci ORDER BY an_index DESC LIMIT 1')
+    query_result = cur.fetchall()
+    if n <= query_result[0][0]:
+        cur.execute(f'SELECT a_value FROM fibonacci where an_index <= {n}')
+        print(str(n) + " found in database")
+        return cur.fetchall()
+    else:
+       print(str(n) + " NOT found in database")
+       return fibonacci_range(n)
     pass
 def up_to_including_index(n: int) -> Optional[List[int]]:
     return fibonacci_up_to_including_index_database(n)
 
 def fibonacci_up_to_value_database(n: int) -> str:
-    # conn = sqlite3.connect('Fibonacci.db')
-    # cur = conn.cursor()
-    # cur.execute('SELECT a_value FROM fibonacci ORDER BY a_value DESC LIMIT 1')
-    # query_result = cur.fetchall()
-    # if n <= int(query_result[0][0]):
-    #     cur.execute(f'SELECT a_value FROM fibonacci where a_value <= {n}')
-    #     print(str(n) + " found in database")
-    #     return cur.fetchall()
-    # else:
-    #     print(str(n) + " NOT found in database")
-    #     return fibonacci_loop_max(n)
+    conn = sqlite3.connect('Fibonacci.db')
+    cur = conn.cursor()
+    cur.execute('SELECT a_value FROM fibonacci ORDER BY a_value DESC LIMIT 1')
+    query_result = cur.fetchall()
+    if n <= int(query_result[0][0]):
+        cur.execute(f'SELECT a_value FROM fibonacci where a_value <= {n}')
+        print(str(n) + " found in database")
+        return cur.fetchall()
+    else:
+        print(str(n) + " NOT found in database")
+        return fibonacci_loop_max(n)
     pass
 
 def up_to_value(n: int) -> Optional[List[int]]:
