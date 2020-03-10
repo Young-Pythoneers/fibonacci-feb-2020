@@ -1,21 +1,21 @@
 import os
 
-from config import db
-from fibonacci import fibonacci_recursive
-from models import Fibonacci
+from fibonaci.config import db
+from fibonaci.fibonacci import fibonacci_recursive
+from fibonaci.models import Fibonacci
 
 # Data to initialize database with
 
 # Delete database file if it exists currently
-if os.path.exists("fibonacci.db"):
-    os.remove("fibonacci.db")
+if os.path.exists("Fibonacci.db"):
+    os.remove("Fibonacci.db")
 
 # Create the database
 db.create_all()
 
-n = 3
+n = 100
 for x in range(n):
-    fib_value = Fibonacci(index_value= x, single_value = str(fibonacci_recursive(x)))
+    fib_value = Fibonacci(an_index = x, a_value = str(fibonacci_recursive(x)))
     db.session.add(fib_value)
 
 db.session.commit()

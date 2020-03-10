@@ -1,9 +1,9 @@
-from config import db, ma
+from fibonaci.config import db, ma
 
 class Fibonacci(db.Model):
     __tablename__ = 'Fibonacci'
-    index_value = db.Column(db.Integer, primary_key=True)
-    single_value = db.Column(db.String)
+    an_index = db.Column(db.Integer, primary_key=True)
+    a_value = db.Column(db.String)
 
 class FibSchema(ma.ModelSchema):
     class Meta:

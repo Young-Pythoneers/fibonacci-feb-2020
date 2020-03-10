@@ -6,8 +6,10 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import sqlite3
-from models import Fibonacci
+from fibonaci.models import Fibonacci
 from functools import lru_cache
+
+import json
 
 __all__ = [
     "for_index",
@@ -17,10 +19,9 @@ __all__ = [
 
 @lru_cache(maxsize=4_000_000_000)
 def fibonacci_recursive_with_database(n: int) -> int:
-    #return fibonacci_recursive(n)
-    conn = sqlite3.connect('fibonacci.db')
+    conn = sqlite3.connect('Fibonacci.db')
     cur = conn.cursor()
-    cur.execute(f'SELECT single_value FROM fibonacci where index_value is {n}')
+    cur.execute(f'SELECT a_value FROM fibonacci where an_index is {n}')
     query_result = cur.fetchall()
     if query_result:
         output = int(query_result[0][0])
@@ -33,7 +34,7 @@ def fibonacci_recursive_with_database(n: int) -> int:
         m = (n + 1) // 2
         output = fibonacci_recursive_with_database(m) ** 2 + fibonacci_recursive_with_database(m - 1) ** 2
     print(str(n) + " NOT found in database")
-    fib_value = Fibonacci(index_value=n, single_value=str(output))
+    fib_value = Fibonacci(an_index=n, a_value=str(output))
     db.session.add(fib_value)
     db.session.commit()
     return output
@@ -41,11 +42,38 @@ def fibonacci_recursive_with_database(n: int) -> int:
 def for_index(n: int) -> str:
     return str(fibonacci_recursive_with_database(n))
 
+def fibonacci_up_to_including_index_database(n: int) -> str:
+    # conn = sqlite3.connect('Fibonacci.db')
+    # cur = conn.cursor()
+    # cur.execute('SELECT an_index FROM fibonacci ORDER BY an_index DESC LIMIT 1')
+    # query_result = cur.fetchall()
+    # if n <= query_result[0][0]:
+    #     cur.execute(f'SELECT a_value FROM fibonacci where an_index <= {n}')
+    #     print(str(n) + " found in database")
+    #     return cur.fetchall()
+    # else:
+    #    print(str(n) + " NOT found in database")
+    #    return fibonacci_range(n)
+    pass
 def up_to_including_index(n: int) -> Optional[List[int]]:
-    return fibonacci_range(n)
+    return fibonacci_up_to_including_index_database(n)
+
+def fibonacci_up_to_value_database(n: int) -> str:
+    # conn = sqlite3.connect('Fibonacci.db')
+    # cur = conn.cursor()
+    # cur.execute('SELECT a_value FROM fibonacci ORDER BY a_value DESC LIMIT 1')
+    # query_result = cur.fetchall()
+    # if n <= int(query_result[0][0]):
+    #     cur.execute(f'SELECT a_value FROM fibonacci where a_value <= {n}')
+    #     print(str(n) + " found in database")
+    #     return cur.fetchall()
+    # else:
+    #     print(str(n) + " NOT found in database")
+    #     return fibonacci_loop_max(n)
+    pass
 
 def up_to_value(n: int) -> Optional[List[int]]:
-    return fibonacci_loop_max(n)
+    return fibonacci_up_to_value_database(n)
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
