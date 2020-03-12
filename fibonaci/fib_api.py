@@ -36,6 +36,7 @@ def fibonacci_recursive_with_database(n: int) -> int:
     fib_value = Fibonacci(an_index=n, a_value=str(output))
     db.session.add(fib_value)
     db.session.commit()
+    conn.close()
     return output
 
 def for_index(n: int) -> str:
@@ -57,6 +58,7 @@ def fibonacci_up_to_including_index_database(n: int) -> List[str]:
             db.session.add(database_entry)
             db.session.commit()
         output.append(fibonacci_number)
+    conn.close()
     return output
 
 def up_to_including_index(n: int) -> Optional[List[int]]:
@@ -82,6 +84,7 @@ def fibonacci_up_to_value_database(n: int) -> List[str]:
             break
         output.append(fibonacci_number)
         i += 1
+    conn.close()
     return output
 
 def up_to_value(n: int) -> Optional[List[int]]:

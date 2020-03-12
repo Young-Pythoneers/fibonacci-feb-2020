@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="fibonacci.db" uuid="af7a9958-93c9-4963-acc7-c6d1733c8486">
+    <data-source source="LOCAL" name="fibonacci_database.db" uuid="6c1189f2-eb39-4ba2-8088-701ac7f7e501">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/fibonaci/fibonacci.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/fibonaci/fibonacci_database.db</jdbc-url>
     </data-source>
   </component>
 </project>

@@ -33,8 +33,9 @@ def test_up_to_value(client):
 
 
 def test_database():
-    conn = sqlite3.connect('fibonacci.db')
+    conn = sqlite3.connect('../fibonaci/fibonacci_database.db')
     cur = conn.cursor()
     cur.execute(f'SELECT a_value FROM fibonacci where an_index is {20}')
     record = cur.fetchall()
-    print(record)
+    conn.close()
+    assert record[0][0] == '6765'
