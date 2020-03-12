@@ -31,9 +31,10 @@ def test_up_to_value(client):
     assert rv.status_code == 200
     assert rv.json == [0, 1, 1, 2, 3, 5, 8, 13]
 
-# def test_database():
-#     conn = sqlite3.connect('fibonacci.db')
-#     cur = conn.cursor()
-#     cur.execute(f'SELECT a_value FROM db where an_index is {20}')
-#     # record = cur.fetchall()
-#     # print(record)
+
+def test_database():
+    conn = sqlite3.connect('fibonacci.db')
+    cur = conn.cursor()
+    cur.execute(f'SELECT a_value FROM fibonacci where an_index is {20}')
+    record = cur.fetchall()
+    print(record)

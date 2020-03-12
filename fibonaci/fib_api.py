@@ -19,7 +19,7 @@ __all__ = [
 
 @lru_cache(maxsize=4_000_000_000)
 def fibonacci_recursive_with_database(n: int) -> int:
-    conn = sqlite3.connect('Fibonacci.db')
+    conn = sqlite3.connect('fibonacci_database.db')
     cur = conn.cursor()
     cur.execute(f'SELECT a_value FROM fibonacci where an_index is {n}')
     query_result = cur.fetchall()
@@ -43,7 +43,7 @@ def for_index(n: int) -> str:
 
 def fibonacci_up_to_including_index_database(n: int) -> List[str]:
     output = []
-    conn = sqlite3.connect('Fibonacci.db')
+    conn = sqlite3.connect('fibonacci_database.db')
     for i in range(n+1):
         cur = conn.cursor()
         cur.execute(f'SELECT a_value FROM fibonacci where an_index is {i}')
@@ -64,7 +64,7 @@ def up_to_including_index(n: int) -> Optional[List[int]]:
 
 def fibonacci_up_to_value_database(n: int) -> List[str]:
     output = []
-    conn = sqlite3.connect('Fibonacci.db')
+    conn = sqlite3.connect('fibonacci_database.db')
     i = 0
     while True:
         cur = conn.cursor()
@@ -97,7 +97,7 @@ app.add_api("api/swagger.yml")
 
 # Configure the SQLAlchemy part of the app instance
 app.app.config['SQLALCHEMY_ECHO'] = True
-app.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'fibonacci.db')
+app.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(basedir, 'fibonacci_database.db')
 app.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Create the SQLAlchemy db instance

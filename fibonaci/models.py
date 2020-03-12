@@ -1,7 +1,7 @@
 from fibonaci.config import db, ma
 
 class Fibonacci(db.Model):
-    __tablename__ = 'Fibonacci'
+    __tablename__ = 'fibonacci'
     an_index = db.Column(db.Integer, primary_key=True)
     a_value = db.Column(db.String)
 
