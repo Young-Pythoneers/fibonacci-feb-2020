@@ -12,13 +12,13 @@ __all__ = [
 
 
 def fibonacci_closed(n: int) -> int:
-    """Function that returns the nth number in the fibonacci sequence
+    """Function that returns the nth number in the fibonacci sequence.
 
     Args:
-        n (int): Return the number of the fibonacci sequence of this n
+        n (int): Return the number of the fibonacci sequence of this n.
 
     Returns:
-        int: The nth number in the fibonacci sequence
+        int: The nth number in the fibonacci sequence.
     """
     getcontext().prec = 1000
     phi = Decimal((1 + Decimal(5).sqrt()) / 2)
@@ -27,13 +27,13 @@ def fibonacci_closed(n: int) -> int:
 
 
 def fibonacci_loop(n: int) -> Optional[int]:
-    """Function that returns the nth number in the fibonacci sequence
+    """Function that returns the nth number in the fibonacci sequence.
 
     Args:
-        n (int): Return the number of the fibonacci sequence of this n
+        n (int): Return the number of the fibonacci sequence of this n.
 
     Returns:
-        int: The nth number in the fibonacci sequence
+        int: The nth number in the fibonacci sequence.
     """
     if n < 0:
         return None
@@ -47,12 +47,13 @@ def fibonacci_loop(n: int) -> Optional[int]:
 
 
 def fibonacci_range(n: int) -> Optional[List[int]]:
-    """This function is used to calculate the fibonacci range up to and including the given n
+    """This function is used to calculate the fibonacci range up to and including the given n.
+
     Args:
-        n (int): The n is used for calculating the fibonacci range up to and including that n
+        n (int): The n is used for calculating the fibonacci range up to and including that n.
 
     Returns:
-        A fibonacci range given the n
+        A fibonacci range given the n.
     """
     fibonacci_start = [0, 1]
     if n < 0:
@@ -66,13 +67,13 @@ def fibonacci_range(n: int) -> Optional[List[int]]:
 
 
 def fibonacci_loop_max(n: int) -> Optional[List[int]]:
-    """This function is used to calculate the fibonacci range up to the value defined by n
+    """This function is used to calculate the fibonacci range up to the value defined by n.
 
     Args:
-        n (int): Return the fibonacci sequence with with number smaller than n
+        n (int): Return the fibonacci sequence with with number smaller than n.
 
     Returns:
-        list: The fibonacci sequence with numbers smaller than n
+        list: The fibonacci sequence with numbers smaller than n.
     """
     fib = [0, 1]
     if n < 0:
@@ -91,13 +92,13 @@ def fibonacci_loop_max(n: int) -> Optional[List[int]]:
 
 @lru_cache(maxsize=4_000_000_000)
 def fibonacci_recursive(n: int) -> Optional[int]:
-    """Function that returns the nth number in the fibonacci sequence
+    """Function that returns the nth number in the fibonacci sequence.
 
     Args:
-        n (int): Return the number of the fibonacci sequence of this n
+        n (int): Return the number of the fibonacci sequence of this n.
 
     Returns:
-        int: The nth number in the fibonacci sequence
+        int: The nth number in the fibonacci sequence.
 
     Idea of method found at:
     https://codereview.stackexchange.com/questions/183231/python-3-fibonacci-implementation

@@ -1,14 +1,15 @@
-import pytest
-import sqlite3
 import os
+import sqlite3
+
+import pytest
 
 import fibonaci
 import tests
-
-from fibonaci.fib_api import create_app
 from fibonaci.build_database import create_new_database
+from fibonaci.fib_api import create_app
 from fibonaci.models import Fibonacci, FibSchema
 from tests.config_for_tests import db
+
 
 @pytest.fixture
 def app():
@@ -37,25 +38,30 @@ def test_up_to_value(client):
     assert rv.status_code == 200
     assert rv.json == [0, 1, 1, 2, 3, 5, 8, 13]
 
+
 def test_config_import():
     from tests.config_for_tests import db
+
     assert True
+
 
 def test_monkeypatch(monkeypatch):
-    monkeypatch.setattr(fibonaci, 'config', tests.config_for_tests)
+    monkeypatch.setattr(fibonaci, "config", tests.config_for_tests)
     assert True
+
 
 def test_database_creation(monkeypatch):
-    monkeypatch.setattr(fibonaci, 'config', tests.config_for_tests)
-    database_name = 'fibonacci_database_test.db'
+    monkeypatch.setattr(fibonaci, "config", tests.config_for_tests)
+    database_name = "fibonacci_database_test.db"
     create_new_database(database_name=database_name)
-    #os.remove('../fibonaci/'+ database_name)
+    # os.remove('../fibonaci/'+ database_name)
     assert True
 
+
 def test_database_insertion(monkeypatch):
-    monkeypatch.setattr(fibonaci, 'config', tests.config_for_tests)
-    database_name = 'fibonacci_database_test.db'
-    to_be_inserted_value = '1234'
+    monkeypatch.setattr(fibonaci, "config", tests.config_for_tests)
+    database_name = "fibonacci_database_test.db"
+    to_be_inserted_value = "1234"
     to_be_inserted_index = 987
     create_new_database(database_name=database_name)
 
@@ -65,17 +71,20 @@ def test_database_insertion(monkeypatch):
 
     conn = sqlite3.connect(database_name)
     cur = conn.cursor()
-    cur.execute(f'SELECT a_value FROM fibonacci where an_index is {to_be_inserted_index}')
+    cur.execute(
+        f"SELECT a_value FROM fibonacci where an_index is {to_be_inserted_index}"
+    )
     query_result = cur.fetchall()
     to_be_returned_value = query_result[0][0]
     conn.close()
-    #os.remove(database_name)
+    # os.remove(database_name)
     assert to_be_returned_value == to_be_inserted_value
 
+
 def test_database_integration():
-    conn = sqlite3.connect('../fibonaci/fibonacci_database.db')
+    conn = sqlite3.connect("../fibonaci/fibonacci_database.db")
     cur = conn.cursor()
-    cur.execute(f'SELECT a_value FROM fibonacci where an_index is {20}')
+    cur.execute(f"SELECT a_value FROM fibonacci where an_index is {20}")
     record = cur.fetchall()
     conn.close()
-    assert record[0][0] == '6765'
+    assert record[0][0] == "6765"
