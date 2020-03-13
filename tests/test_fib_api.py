@@ -41,7 +41,6 @@ def test_up_to_value(client):
 
 def test_config_import():
     from tests.config_for_tests import db
-
     assert True
 
 

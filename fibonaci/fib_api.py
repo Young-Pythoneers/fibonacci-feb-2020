@@ -57,11 +57,9 @@ def fibonacci_recursive_with_database(n: int) -> int:
 
 
 def for_index(n: int) -> str:
-    def fibonacci_recursive_with_database(n: int) -> int:
-        """ This function calls the fibonacci_recursive_with_database function using the given n (Fibonacci index).
-        This function is created for code readability.
-        """
-
+    """ This function calls the fibonacci_recursive_with_database function using the given n (Fibonacci index).
+    This function is created for code readability.
+    """
     return str(fibonacci_recursive_with_database(n))
 
 
