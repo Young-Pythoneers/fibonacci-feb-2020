@@ -16,14 +16,16 @@ def fibonacci_recursive_with_database(n: int) -> int:
     Returns:
         int: The nth number in the fibonacci sequence .
     """
-    conn = sqlite3.connect("fibonacci_database.db")
+    conn = sqlite3.connect("../config/fibonacci_database.db")
     cur = conn.cursor()
     cur.execute(f"SELECT a_value FROM fibonacci where an_index is {n}")
     query_result = cur.fetchall()
     if query_result:
         output = int(query_result[0][0])
         return output
-    if n % 2 == 0:
+    elif n < 3:
+        output = [0,1,1][n]
+    elif n % 2 == 0:
         m = n // 2
         output = (
             fibonacci_recursive_with_database(m - 1)
@@ -54,7 +56,7 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
             output (List): The range of Fibonacci numbers up to and including the given index.
         """
     output = []
-    conn = sqlite3.connect("fibonacci_database.db")
+    conn = sqlite3.connect("../config/fibonacci_database.db")
     for i in range(n + 1):
         cur = conn.cursor()
         cur.execute(f"SELECT a_value FROM fibonacci where an_index is {i}")
@@ -62,7 +64,10 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
         if query_result:
             fibonacci_number = query_result[0][0]
         else:
-            fibonacci_number = str(int(output[-1]) + int(output[-2]))
+            if i < 3:
+                fibonacci_number = str([0,1,1][i])
+            else:
+                fibonacci_number = str(int(output[-1]) + int(output[-2]))
             print(str(i) + " NOT found in database")
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
             db.session.add(database_entry)
@@ -83,7 +88,7 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
         output (List): The range of Fibonacci numbers based on a given random integer.
     """
     output = []
-    conn = sqlite3.connect("fibonacci_database.db")
+    conn = sqlite3.connect("../config/fibonacci_database.db")
     i = 0
     while True:
         cur = conn.cursor()
@@ -92,7 +97,10 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
         if query_result:
             fibonacci_number = query_result[0][0]
         else:
-            fibonacci_number = str(int(output[-1]) + int(output[-2]))
+            if i < 3:
+                fibonacci_number = str([0,1,1][i])
+            else:
+                fibonacci_number = str(int(output[-1]) + int(output[-2]))
             print(str(i) + " NOT found in database")
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
             db.session.add(database_entry)

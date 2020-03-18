@@ -11,9 +11,9 @@ class Fibonacci(db.Model):
     """
 
     __tablename__ = "fibonacci"
-    index = db.Column(db.Integer, primary_key=True)
-    value = db.Column(db.String)
+    an_index = db.Column(db.Integer, primary_key=True)
+    a_value = db.Column(db.String)
 
-    def __init__(self, index, value):
-        self.index = index
-        self.value = value
+    def __init__(self, an_index, a_value):
+        self.an_index = an_index
+        self.a_value = a_value
