@@ -4,6 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Nathan Hoogendorp <Nathan.Hoogendorp@ordina.nl>"]
 
+packages = [
+    { include = "fibonacci", from = "src" },
+]
+
 [tool.poetry.dependencies]
 python = "^3.7"
 flask = "^1.1.1"
@@ -20,6 +24,8 @@ marshmallow = "^3.5.0"
 mock = "^4.0.1"
 aiosql = "^3.0.0"
 flask_sqlalchemy = "^2.4.1"
+pytest-flask-sqlalchemy = "^1.0.2"
+pytest-mock = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
