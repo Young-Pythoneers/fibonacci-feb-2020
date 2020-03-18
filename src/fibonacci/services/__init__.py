@@ -16,12 +16,12 @@ def fibonacci_recursive_with_database(n: int) -> int:
     Returns:
         int: The nth number in the fibonacci sequence .
     """
-    conn = sqlite3.connect("../config/fibonacci_database.db")
-    cur = conn.cursor()
-    cur.execute(f"SELECT a_value FROM fibonacci where an_index is {n}")
-    query_result = cur.fetchall()
+    values: List[Fibonacci] = (
+        Fibonacci.query.filter(Fibonacci.an_index == n)
+    )
+    query_result = [v.a_value for v in values]
     if query_result:
-        output = int(query_result[0][0])
+        output = int(query_result[0])
         return output
     elif n < 3:
         output = [0,1,1][n]
@@ -41,7 +41,6 @@ def fibonacci_recursive_with_database(n: int) -> int:
     fib_value = Fibonacci(an_index=n, a_value=str(output))
     db.session.add(fib_value)
     db.session.commit()
-    conn.close()
     return output
 
 def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
@@ -56,13 +55,13 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
             output (List): The range of Fibonacci numbers up to and including the given index.
         """
     output = []
-    conn = sqlite3.connect("../config/fibonacci_database.db")
     for i in range(n + 1):
-        cur = conn.cursor()
-        cur.execute(f"SELECT a_value FROM fibonacci where an_index is {i}")
-        query_result = cur.fetchall()
+        values: List[Fibonacci] = (
+            Fibonacci.query.filter(Fibonacci.an_index == i)
+        )
+        query_result = [v.a_value for v in values]
         if query_result:
-            fibonacci_number = query_result[0][0]
+            fibonacci_number = query_result[0]
         else:
             if i < 3:
                 fibonacci_number = str([0,1,1][i])
@@ -73,7 +72,6 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
             db.session.add(database_entry)
             db.session.commit()
         output.append(fibonacci_number)
-    conn.close()
     return output
 
 def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
@@ -88,14 +86,14 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
         output (List): The range of Fibonacci numbers based on a given random integer.
     """
     output = []
-    conn = sqlite3.connect("../config/fibonacci_database.db")
     i = 0
     while True:
-        cur = conn.cursor()
-        cur.execute(f"SELECT a_value FROM fibonacci where an_index is {i}")
-        query_result = cur.fetchall()
+        values: List[Fibonacci] = (
+            Fibonacci.query.filter(Fibonacci.an_index == i)
+        )
+        query_result = [v.a_value for v in values]
         if query_result:
-            fibonacci_number = query_result[0][0]
+            fibonacci_number = query_result[0]
         else:
             if i < 3:
                 fibonacci_number = str([0,1,1][i])
@@ -109,6 +107,5 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
             break
         output.append(fibonacci_number)
         i += 1
-    conn.close()
     return output
 
