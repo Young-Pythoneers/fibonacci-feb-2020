@@ -1,8 +1,13 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
-from fibonacci.timed_Fibonacci_func.Functions_for_speed_test import fibonacci_closed, fibonacci_loop, fibonacci_recursive
+from fibonacci.timed_Fibonacci_func.Functions_for_speed_test import (
+    fibonacci_closed,
+    fibonacci_loop,
+    fibonacci_recursive,
+)
 from fibonacci.timed_Fibonacci_func.speed import speed
+
 
 def test_run():
     file_path = Path("./speed_data_test.csv")

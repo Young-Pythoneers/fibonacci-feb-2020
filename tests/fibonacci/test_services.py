@@ -1,5 +1,11 @@
-from fibonacci.services import fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value
 import pytest
+
+from fibonacci.services import (
+    fibonacci_recursive_with_database,
+    fibonacci_up_to_index,
+    fibonacci_up_to_value,
+)
+
 
 @pytest.mark.parametrize(
     "test_input,expected",
@@ -15,10 +21,12 @@ import pytest
 def test_fibonacci_recursive_with_database(test_input, expected):
     assert fibonacci_recursive_with_database(test_input) == expected
 
+
 def test_fibonacci_up_to_index_length():
     result = fibonacci_up_to_index(5)
 
     assert len(result) == 6
+
 
 @pytest.mark.parametrize(
     "test_input,expected",
@@ -34,10 +42,12 @@ def test_fibonacci_up_to_index_length():
 def test_fibonacci_up_to_index_values(test_input, expected):
     assert fibonacci_up_to_index(test_input) == expected
 
+
 def test_fibonacci_up_to_value_length():
     result = fibonacci_up_to_value(5)
 
     assert len(result) == 6
+
 
 @pytest.mark.parametrize(
     "test_input,expected",
@@ -51,6 +61,7 @@ def test_fibonacci_up_to_value_length():
 )
 def test_fibonacci_up_to_value(test_input, expected):
     assert fibonacci_up_to_value(test_input) == expected
+
 
 def test_fobonacci():
     assert "fobonacci" != "fibonacci"
