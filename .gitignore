@@ -261,3 +261,6 @@ fabric.properties
 # Database files
 *.db
 
+# CSV files
+*.csv
+
