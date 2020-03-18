@@ -37,7 +37,6 @@ def fibonacci_recursive_with_database(n: int) -> int:
             fibonacci_recursive_with_database(m) ** 2
             + fibonacci_recursive_with_database(m - 1) ** 2
         )
-    print(str(n) + " NOT found in database")
     fib_value = Fibonacci(an_index=n, a_value=str(output))
     db.session.add(fib_value)
     db.session.commit()
@@ -67,7 +66,6 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
                 fibonacci_number = str([0,1,1][i])
             else:
                 fibonacci_number = str(int(output[-1]) + int(output[-2]))
-            print(str(i) + " NOT found in database")
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
             db.session.add(database_entry)
             db.session.commit()
@@ -99,7 +97,6 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
                 fibonacci_number = str([0,1,1][i])
             else:
                 fibonacci_number = str(int(output[-1]) + int(output[-2]))
-            print(str(i) + " NOT found in database")
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
             db.session.add(database_entry)
             db.session.commit()
