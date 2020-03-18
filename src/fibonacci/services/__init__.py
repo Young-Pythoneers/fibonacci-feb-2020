@@ -1,6 +1,5 @@
 from functools import lru_cache
 from typing import List, Optional
-import sqlite3
 from fibonacci.models import Fibonacci, db
 
 

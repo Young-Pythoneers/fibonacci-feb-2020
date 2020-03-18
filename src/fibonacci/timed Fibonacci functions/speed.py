@@ -5,7 +5,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from fibonaci import fibonacci_closed, fibonacci_loop, fibonacci_recursive
+from fibonacci. import fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value
+
+from fibonacci.models import Fibonacci
+
+
 
 
 def timed_iterator(func):
@@ -16,7 +20,7 @@ def timed_iterator(func):
       func (function): Function that calculates a Fibonacci number based on given index.
 
     Returns:
-      wrapper: Contains a list per Fibonaci function with execution time for each index.
+      wrapper: Contains a list per Fibonacci function with execution time for each index.
     """
 
     def wrapper(n):
@@ -74,7 +78,7 @@ def plot_results(df):
 if __name__ == "__main__":
     file_path = Path("./speed_data.csv")
     speed(
-        200, file_path, [fibonacci_closed, fibonacci_loop, fibonacci_recursive,],
+        200, file_path, [fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value,],
     )
     df = pd.read_csv(file_path)
     plot_results(df)
