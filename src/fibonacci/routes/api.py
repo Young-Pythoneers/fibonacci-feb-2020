@@ -1,7 +1,11 @@
-from typing import Optional, List
+from typing import List, Optional
 
 from fibonacci.models import Fibonacci, db
-from fibonacci.services import fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value
+from fibonacci.services import (
+    fibonacci_recursive_with_database,
+    fibonacci_up_to_index,
+    fibonacci_up_to_value,
+)
 
 
 def up_to_including_index(n: int) -> List[int]:
@@ -16,6 +20,7 @@ def up_to_value(n: int) -> Optional[List[str]]:
     This function is created for code readability.
     """
     return fibonacci_up_to_value(n)
+
 
 def for_index(n: int) -> str:
     return str(fibonacci_recursive_with_database(n))

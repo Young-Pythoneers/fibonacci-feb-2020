@@ -5,7 +5,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from fibonacci.timed_Fibonacci_func.Functions_for_speed_test import fibonacci_recursive, fibonacci_closed, fibonacci_loop
+from fibonacci.timed_Fibonacci_func.Functions_for_speed_test import (
+    fibonacci_closed,
+    fibonacci_loop,
+    fibonacci_recursive,
+)
 
 
 def timed_iterator(func):

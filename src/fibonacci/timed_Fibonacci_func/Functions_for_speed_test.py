@@ -1,6 +1,7 @@
+from decimal import Decimal, getcontext
 from functools import lru_cache
 from typing import List, Optional
-from decimal import Decimal, getcontext
+
 
 @lru_cache(maxsize=4_000_000_000)
 def fibonacci_recursive(n: int) -> int:
@@ -40,6 +41,7 @@ def fibonacci_closed(n: int) -> int:
     phi = Decimal((1 + Decimal(5).sqrt()) / 2)
     psi = Decimal((1 - Decimal(5).sqrt()) / 2)
     return int((phi ** n - psi ** n) / Decimal(5).sqrt() + Decimal(0.5))
+
 
 def fibonacci_loop(n: int) -> Optional[int]:
     """Function that returns the nth number in the fibonacci sequence

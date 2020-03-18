@@ -4,7 +4,7 @@ from fibonacci import create_app
 from fibonacci.models import db as _db
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.yield_fixture(scope="session")
 def app():
     _app = create_app("config.test")
     ctx = _app.app_context()
@@ -15,12 +15,12 @@ def app():
     ctx.pop()
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def test_app(app):
     return app.test_client()
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.yield_fixture(scope="session")
 def db(app):
     _db.app = app
     _db.create_all()
@@ -30,7 +30,7 @@ def db(app):
     _db.drop_all()
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def session(db):
     connection = db.engine.connect()
     transaction = connection.begin()

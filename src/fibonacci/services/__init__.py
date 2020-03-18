@@ -1,5 +1,6 @@
 from functools import lru_cache
 from typing import List, Optional
+
 from fibonacci.models import Fibonacci, db
 
 
@@ -15,15 +16,13 @@ def fibonacci_recursive_with_database(n: int) -> int:
     Returns:
         int: The nth number in the fibonacci sequence .
     """
-    values: List[Fibonacci] = (
-        Fibonacci.query.filter(Fibonacci.an_index == n)
-    )
+    values: List[Fibonacci] = (Fibonacci.query.filter(Fibonacci.an_index == n))
     query_result = [v.a_value for v in values]
     if query_result:
         output = int(query_result[0])
         return output
     elif n < 3:
-        output = [0,1,1][n]
+        output = [0, 1, 1][n]
     elif n % 2 == 0:
         m = n // 2
         output = (
@@ -41,6 +40,7 @@ def fibonacci_recursive_with_database(n: int) -> int:
     db.session.commit()
     return output
 
+
 def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
     """ Function that provides a Fibonacci range up to and including the given n (index), it does so in conjunction with a SQLite database.
         It looks up the range given the index in the database.
@@ -54,15 +54,13 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
         """
     output = []
     for i in range(n + 1):
-        values: List[Fibonacci] = (
-            Fibonacci.query.filter(Fibonacci.an_index == i)
-        )
+        values: List[Fibonacci] = (Fibonacci.query.filter(Fibonacci.an_index == i))
         query_result = [v.a_value for v in values]
         if query_result:
             fibonacci_number = query_result[0]
         else:
             if i < 3:
-                fibonacci_number = str([0,1,1][i])
+                fibonacci_number = str([0, 1, 1][i])
             else:
                 fibonacci_number = str(int(output[-1]) + int(output[-2]))
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
@@ -70,6 +68,7 @@ def fibonacci_up_to_index(n: int) -> List[Fibonacci]:
             db.session.commit()
         output.append(fibonacci_number)
     return output
+
 
 def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
     """ Function that provides a Fibonacci range based on a random integer, it does so in conjunction with a SQLite database.
@@ -85,15 +84,13 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
     output = []
     i = 0
     while True:
-        values: List[Fibonacci] = (
-            Fibonacci.query.filter(Fibonacci.an_index == i)
-        )
+        values: List[Fibonacci] = (Fibonacci.query.filter(Fibonacci.an_index == i))
         query_result = [v.a_value for v in values]
         if query_result:
             fibonacci_number = query_result[0]
         else:
             if i < 3:
-                fibonacci_number = str([0,1,1][i])
+                fibonacci_number = str([0, 1, 1][i])
             else:
                 fibonacci_number = str(int(output[-1]) + int(output[-2]))
             database_entry = Fibonacci(an_index=i, a_value=fibonacci_number)
@@ -104,4 +101,3 @@ def fibonacci_up_to_value(n: int) -> List[Fibonacci]:
         output.append(fibonacci_number)
         i += 1
     return output
-
