@@ -5,11 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-from fibonacci. import fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value
-
-from fibonacci.models import Fibonacci
-
-
+from fibonacci.timed_Fibonacci_func.Functions_for_speed_test import fibonacci_recursive, fibonacci_closed, fibonacci_loop
 
 
 def timed_iterator(func):
@@ -78,7 +74,7 @@ def plot_results(df):
 if __name__ == "__main__":
     file_path = Path("./speed_data.csv")
     speed(
-        200, file_path, [fibonacci_recursive_with_database, fibonacci_up_to_index, fibonacci_up_to_value,],
+        200, file_path, [fibonacci_recursive, fibonacci_closed, fibonacci_loop],
     )
     df = pd.read_csv(file_path)
     plot_results(df)
