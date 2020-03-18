@@ -1,6 +1,5 @@
 from typing import List, Optional
 
-from fibonacci.models import Fibonacci, db
 from fibonacci.services import (
     fibonacci_recursive_with_database,
     fibonacci_up_to_index,

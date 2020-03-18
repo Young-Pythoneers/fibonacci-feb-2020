@@ -5,7 +5,7 @@ from fibonacci.models import Fibonacci, db
 
 
 @lru_cache(maxsize=4_000_000_000)
-def fibonacci_recursive_with_database(n: int) -> int:
+def fibonacci_recursive_with_database(n: int) -> Optional[int]:
     """ Function that provides a Fibonacci number given te index, it does so in conjunction with a SQLite database.
     It first looks up the Fibonacci number given te index in the database.
     If it does not exist it calculates it using the recursive Fibonacci equation and adds it to the database.
@@ -21,6 +21,8 @@ def fibonacci_recursive_with_database(n: int) -> int:
     if query_result:
         output = int(query_result[0])
         return output
+    elif n < 0:
+        return None
     elif n < 3:
         output = [0, 1, 1][n]
     elif n % 2 == 0:
