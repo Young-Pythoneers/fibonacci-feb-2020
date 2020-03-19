@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-    description: This is the swagger file that goes with our server code
+    description: "This is the swagger file that goes with our Fibonacci server."
     version: "1.0.0"
-    title: Swagger REST Article
+    title: "Fibonacci REST API"
 consumes:
     - "application/json"
 produces:
@@ -14,7 +14,7 @@ basePath: "/api"
 paths:
     /fibonacci/up-to-including-index:
         get:
-            operationId: "fibonaci.fib_api.up_to_including_index"
+            operationId: "fibonacci.routes.api.up_to_including_index"
             tags:
                 - "/fibonacci/up-to-including-index"
             summary: "Given an index, this function return the range of Fibonacci functions up to and including the given argument."
@@ -41,7 +41,7 @@ paths:
 
     /fibonacci/up-to-value:
         get:
-            operationId: "fibonaci.fib_api.up_to_value"
+            operationId: "fibonacci.routes.api.up_to_value"
             tags:
                 - "/fibonacci/up-to-value"
             summary: "Given a value, this function return the range of Fibonacci functions up to a certain value defined by the given argument."
@@ -68,7 +68,7 @@ paths:
 
     /fibonacci/for-index:
             get:
-                operationId: "fibonaci.fib_api.for_index"
+                operationId: "fibonacci.routes.api.for_index"
                 tags:
                     - "/fibonacci/for-index"
                 summary: "Given an index, this function return the nth number in the Fibonacci sequence, where n is defined by the given argument."
